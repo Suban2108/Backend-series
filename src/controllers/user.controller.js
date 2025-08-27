@@ -173,7 +173,7 @@ const logoutUser = asynchandler(async (req, res) => {
 })
 
 const refreshAccessToken = asynchandler(async (req, res, next) => {
-    const incomingRefreshToken = req.cookie.refreshToken || req.body.refreshToken;
+    const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken;
 
     if (!incomingRefreshToken) {
         throw new ApiError(401, "UnAuthorise Access Token");
